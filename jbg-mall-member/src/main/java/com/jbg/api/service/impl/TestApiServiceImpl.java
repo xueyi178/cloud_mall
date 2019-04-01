@@ -9,7 +9,7 @@ import com.jbg.api.service.TestApiService;
 import com.jbg.base.BaseApiService;
 import com.jbg.base.ResponseBase;
 /**
- * 1、接口地址
+ * 1、member的Controller接口
  * 项目名称：jbg-mall-member 
  * 类名称：TestApiServiceImpl
  * 开发者：Lenovo
