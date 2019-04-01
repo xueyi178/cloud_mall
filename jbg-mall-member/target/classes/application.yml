@@ -1,0 +1,32 @@
+server:
+  port: 8762
+    
+spring:
+   application:                                             # 对外暴露的微服务名字
+    name: member
+   #引用开发环境的数据配置文件
+   profiles: 
+     active: dev
+
+#mybatis配置文件
+mybatis:
+    #扫描实体类
+     type-aliases-package: com.jbg.entity
+    #扫描mybatis文件
+     mapper-locations: classpath:mybatis/*.xml
+#开启控制台打印sql语句，一般用于本地开发测试
+#     configuration:
+#             log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:     
+
+eureka:
+    #客户端注册到eureka服务列表内
+    client: 
+      service-url:
+          defaultZone: http://localhost:8761/eureka
