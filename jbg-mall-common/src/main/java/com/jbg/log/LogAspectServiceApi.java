@@ -9,13 +9,13 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSONObject;
-
-import lombok.extern.slf4j.Slf4j;
 /**
  * 1、日志收集
  * 项目名称：jbg-mall-common 
@@ -25,8 +25,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Aspect
 @Component
-@Slf4j
 public class LogAspectServiceApi {
+	
+	private Logger log = LoggerFactory.getLogger(getClass());
+	
 	private JSONObject jsonObject = new JSONObject();
 
 	// 申明一个切点 里面是 execution表达式
