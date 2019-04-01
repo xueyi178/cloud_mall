@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<!-- 去掉默认配置用log4j2的日志文件 -->
+			<!-- 去掉默认配置用log4j2的日志文件,使用log4j2的依赖 -->
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
