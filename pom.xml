@@ -163,5 +163,6 @@
 		<module>jbg-mall-eurekaserver</module>
 		<module>jbg-mall-api</module>
 		<module>jbg-mall-member</module>
+		<module>jbg-mall-message</module>
 	</modules>
 </project>

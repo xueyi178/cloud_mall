@@ -47,6 +47,16 @@ spring:
       min-idle: 1
       max-active: 1000
       max-wait: -1    
+   ##activemq连接信息
+   activemq:
+     broker-url: tcp://localhost:61616
+     in-memory: true
+     pool:
+       enabled: false   
+#定义消息队列
+messages:
+   queue: messages_queue       
+       
 
 #mybatis配置文件
 mybatis:
@@ -75,3 +85,4 @@ logging:
     root: info #日志配置DEBUG,INFO,WARN,ERROR
   file: jbg_mall.log #配置日志生成路径
 #  path: /var/logs #配置日志文件名称
+

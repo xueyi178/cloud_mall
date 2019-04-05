@@ -3,6 +3,7 @@ package com.jbg.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 /**
@@ -14,6 +15,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Data
 public class MbUser implements Serializable{
     /**
 	 * 序列化
