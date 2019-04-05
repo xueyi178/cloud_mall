@@ -3,6 +3,10 @@ package com.jbg.adapter.impl;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,6 +23,15 @@ public class EmailServiceImpl implements MessageAdapter{
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
+	@Value("${msg.subject}")
+	private String subject;
+	
+	@Value("${msg.text}")
+	private String text;
+
+	@Autowired
+	private JavaMailSender mailSender;
+	
 	/**
 	 * 1、发送邮件的接口
 	 * @param object
@@ -30,7 +43,18 @@ public class EmailServiceImpl implements MessageAdapter{
 		if(StringUtils.isEmpty(email)) {
 			return;
 		}
-		//
-		log.info("####消息服务平台发送邮件账号:{}"+email);
+		log.info("####消息服务平台发送邮件:{}开始"+email);
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		//来自账号
+		mailMessage.setFrom(email);
+		//发送账号
+		mailMessage.setTo(email);
+		//标题
+		mailMessage.setSubject(subject);
+		//内容
+		mailMessage.setText(text.replace("{}", email));
+		//发送邮件
+		mailSender.send(mailMessage);
+		log.info("####消息服务平台发送邮件:{}结束"+email);
 	}
 }

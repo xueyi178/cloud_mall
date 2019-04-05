@@ -29,9 +29,9 @@ spring:
     #设置邮箱主机
     host: smtp.163.com
     #用户名
-    username: yushengjun2018@163.com
+    username: yushengjun20180315@163.com
     #密码
-    password: itmayiedu644
+    password: itmayiedu123456
     #设置是否需要认证，如果为true,那么用户名和密码就必须的，
     enable:  true
     #如果设置false，可以不设置用户名和密码，当然也得看你的对接的平台是否支持无密码进行访问的。
@@ -43,8 +43,6 @@ spring:
       required: true
  
 ########################################
-
-
 
 #自定义的配置文件
 msg: 
