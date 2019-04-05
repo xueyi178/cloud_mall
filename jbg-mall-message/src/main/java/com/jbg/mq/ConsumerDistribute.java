@@ -37,6 +37,7 @@ public class ConsumerDistribute {
 	 * destination="messages_queue"：表示监听那一个队列的消息
 	 * @param json：表示消息内容
 	 */
+	@SuppressWarnings("static-access")
 	@JmsListener(destination="messages_queue")
 	public void distribute(String json) {
 		log.info("######消息服务平台接收消息的内容:{}######",json);
