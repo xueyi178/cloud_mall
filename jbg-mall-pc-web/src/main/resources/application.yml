@@ -1,0 +1,13 @@
+#服务器端口
+server:
+  port: 80
+#  context-path: /web
+
+#把服务注册到服务里面
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: pc   # 对外暴露的微服务名字

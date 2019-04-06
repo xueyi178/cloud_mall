@@ -164,5 +164,6 @@
 		<module>jbg-mall-api</module>
 		<module>jbg-mall-member</module>
 		<module>jbg-mall-message</module>
+		<module>jbg-mall-pc-web</module>
 	</modules>
 </project>
