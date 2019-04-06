@@ -18,6 +18,7 @@ import com.jbg.entity.MbUser;
 import com.jbg.mapper.MbUserMapper;
 import com.jbg.mq.RegisterMailboxProducer;
 import com.jbg.utils.MD5Utils;
+import com.jbg.utils.TokenUtils;
 /**
  * 1、member业务逻辑层实现类
  * 项目名称：jbg-mall-member 
@@ -38,6 +39,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 	
 	@Value("${messages.queue}")
 	private String MESSAGESQUEUE;
+	
 	/**
 	 * 1、根据用户id查询用户信息
 	 * @return
@@ -101,5 +103,50 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		ActiveMQQueue activeMQQueue = new ActiveMQQueue(MESSAGESQUEUE);
 		registerMailboxProducer.sendMsg(activeMQQueue, json);
 	}
-	
+
+	/**
+	 * 3、用户登录的接口
+	 * @param mbUser
+	 * @return
+	 */
+	@Override
+	public ResponseBase login(@RequestBody MbUser mbUser) {
+		//1、验证参数
+		Assert.notNull(mbUser.getUsername(), "用户名不能为空,请重新输入");
+		Assert.notNull(mbUser.getPassword(), "密码不能为空,请重新输入");
+		//2、数据库查询用户名和密码是否正确
+		String password = MD5Utils.MD5(mbUser.getPassword());
+		MbUser user = mbUserMapper.login(mbUser.getUsername(), password);
+		Assert.notNull(user, "账号或密码不正确,请重试");
+		//3、如果账号和密码正确,生成token
+		String token = TokenUtils.getToken();
+		//4、存放到redis中key为token,value：userId,
+		log.info("####用户信息存入到redis中.....key为:{}"+token,"value为:{}"+user.getId());
+		this.baseRedisService.setString(token, user.getId().toString(), Constants.TOKEN_MEMBER_TIME);
+		//5、直接返回token
+		JSONObject object = new JSONObject();
+		object.clear();
+		object.put("token", token);
+		return setResultSuccess(object);
+	}
+
+	/**
+	 * 4、使用token进行登录
+	 */
+	@Override
+	public ResponseBase getUserByToken(String token) {
+		//1、验证参数
+		Assert.notNull(token,"token不能为空");
+		//2、使用token从redis查询userId
+		String userId = (String) this.baseRedisService.getString(token);
+		Assert.notNull(userId,"token无效或者已过期了");
+		//3、使用userId查询用户信息,返回给客户端
+		MbUser mbUser = mbUserMapper.selectByPrimaryKey(Long.valueOf(userId));
+		Assert.notNull(mbUser,"查询错误,请重试");
+		MbUser user = new MbUser();
+		user.setUsername(mbUser.getUsername());
+		user.setEmail(mbUser.getEmail());
+		user.setPhone(mbUser.getPhone());
+		return this.setResultSuccess(user);
+	}
 }

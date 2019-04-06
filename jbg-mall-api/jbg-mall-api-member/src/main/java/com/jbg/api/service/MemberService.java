@@ -30,4 +30,20 @@ public interface MemberService {
 	 */
 	@PostMapping(value="/insertUser")
 	ResponseBase regUser(@RequestBody MbUser mbUser);
+	
+	/**
+	 * 3、用户登录的接口
+	 * @param mbUser
+	 * @return
+	 */
+	@PostMapping(value="/login")
+	ResponseBase login(@RequestBody MbUser mbUser);
+	
+	/**
+	 * 4、使用token进行登录
+	 * @param mbUser
+	 * @return
+	 */
+	@PostMapping(value="/getUserByToken")
+	ResponseBase getUserByToken(String token);
 }
