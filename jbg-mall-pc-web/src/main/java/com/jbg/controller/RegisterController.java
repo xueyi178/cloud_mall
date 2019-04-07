@@ -1,13 +1,11 @@
 package com.jbg.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.jbg.base.ResponseBase;
 import com.jbg.constants.Constants;
 import com.jbg.entity.MbUser;

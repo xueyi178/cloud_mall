@@ -1,17 +1,14 @@
 package com.jbg.controller;
 
 import java.util.LinkedHashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.jbg.base.ResponseBase;
 import com.jbg.constants.Constants;
 import com.jbg.entity.MbUser;

@@ -33,6 +33,7 @@ public class IndexController {
 	 * 1、访问首页
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String index(HttpServletRequest request) {
 		//1、从cookie中获取token的信息
