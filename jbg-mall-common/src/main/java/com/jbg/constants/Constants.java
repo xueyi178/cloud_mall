@@ -24,10 +24,16 @@ public interface Constants {
 
 	// 发送邮件
 	String MSG_SMS = "email";
-	
+
 	//生成token,会员token
 	String MEMBER_TOKEN = "MEMBER_TOKEN";
-	
-	//token的有效期
+
+	//token在redis中的有效期
 	Long TOKEN_MEMBER_TIME = (long) (60*60*24*90);
+
+	//token在redis中的有效期
+	int COOKIE_MEMBER_TIME = 60*60*24*90;
+
+	//会员token的名称
+	String COOKIE_MEMBER_TOKEN = "cookie_member_token";
 }

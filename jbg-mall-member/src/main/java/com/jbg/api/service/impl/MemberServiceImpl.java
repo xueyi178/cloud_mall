@@ -1,5 +1,7 @@
 package com.jbg.api.service.impl;
 
+import java.util.Date;
+
 import org.apache.activemq.command.ActiveMQQueue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
@@ -65,6 +68,8 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		String password = mbUser.getPassword();
 		String md5 = MD5Utils.MD5(password);
 		mbUser.setPassword(md5);
+		mbUser.setCreated(new Date());
+		mbUser.setUpdated(new Date());
 		int falg = mbUserMapper.insert(mbUser);
 		if(falg <= 0) {
 			return this.setResultError("注册用户信息失败");
@@ -131,10 +136,10 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 	}
 
 	/**
-	 * 4、使用token进行登录
+	 * 4、使用token查询用户信息
 	 */
 	@Override
-	public ResponseBase getUserByToken(String token) {
+	public ResponseBase getUserByToken(@RequestParam("token") String token) {
 		//1、验证参数
 		Assert.notNull(token,"token不能为空");
 		//2、使用token从redis查询userId

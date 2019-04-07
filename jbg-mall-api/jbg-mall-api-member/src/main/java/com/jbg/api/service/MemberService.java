@@ -4,6 +4,7 @@ package com.jbg.api.service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jbg.base.ResponseBase;
 import com.jbg.entity.MbUser;
@@ -40,10 +41,10 @@ public interface MemberService {
 	ResponseBase login(@RequestBody MbUser mbUser);
 	
 	/**
-	 * 4、使用token进行登录
+	 * 4、使用token查询用户信息
 	 * @param mbUser
 	 * @return
 	 */
 	@PostMapping(value="/getUserByToken")
-	ResponseBase getUserByToken(String token);
+	ResponseBase getUserByToken(@RequestParam("token") String token);
 }
