@@ -31,6 +31,8 @@ public class LogAspectServiceApi {
 	
 	private JSONObject jsonObject = new JSONObject();
 
+	ThreadLocal<Long>  startTime = new ThreadLocal<Long>();
+
 	// 申明一个切点 里面是 execution表达式
 	@Pointcut("execution(public * com.jbg.api.service.*.*(..))")
 	private void controllerAspect() {
@@ -39,6 +41,7 @@ public class LogAspectServiceApi {
 	// 请求method前打印内容
 	@Before(value = "controllerAspect()")
 	public void methodBefore(JoinPoint joinPoint) {
+		startTime.set(System.currentTimeMillis());
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes();
 		HttpServletRequest request = requestAttributes.getRequest();
@@ -66,6 +69,7 @@ public class LogAspectServiceApi {
 			log.error("###LogAspectServiceApi.class methodAfterReturing() ### ERROR:", e);
 		}
 		log.info("--------------返回内容----------------");
+		log.info("请求处理时间为:"+(System.currentTimeMillis() - startTime.get())+"MS");
 	}
 
 }
