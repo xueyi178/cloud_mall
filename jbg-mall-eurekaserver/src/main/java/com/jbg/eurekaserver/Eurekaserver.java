@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * 1、Eurekaserver注册中心
+ * 1、Eurekaserver注册中心888
  * @Package com.jbg.eurekaserver	
  * @author Lenovo
  * @date 2019年4月1日
