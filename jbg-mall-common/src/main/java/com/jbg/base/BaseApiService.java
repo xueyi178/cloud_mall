@@ -30,6 +30,11 @@ public class BaseApiService {
 	public ResponseBase setResultError(String msg){
 		return setResult(Constants.HTTP_RES_CODE_500,msg, null);
 	}
+	
+	//返回失败的
+	public ResponseBase setResultError(Integer code, String msg){
+		return setResult(Constants.HTTP_RES_CODE_201,msg, null);
+	}
 	// 自定义返回结果
 	public ResponseBase setResult(Integer code, String msg, Object data) {
 		ResponseBase responseBase = new ResponseBase();

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.jbg.api.service.MemberService;
 
+
 /**
  * 1、使用feigin调用
  * 项目名称：jbg-mall-pc-web 

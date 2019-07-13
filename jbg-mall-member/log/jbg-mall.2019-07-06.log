@@ -1,0 +1,438 @@
+2019-07-06 11:29:56.014 [restartedMain] INFO  com.jbg.Application - No active profile set, falling back to default profiles: default
+2019-07-06 11:29:56.062 [restartedMain] WARN  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.jbg.Application]; nested exception is java.io.FileNotFoundException: class path resource [com/jbg/api/service/MemberService.class] cannot be opened because it does not exist
+2019-07-06 11:29:56.064 [restartedMain] ERROR org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroy method on bean with name 'org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory' threw an exception
+java.lang.IllegalStateException: ApplicationEventMulticaster not initialized - call 'refresh' before multicasting events via the context: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@44b99800: startup date [Sat Jul 06 11:29:56 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4500f7ce
+	at org.springframework.context.support.AbstractApplicationContext.getApplicationEventMulticaster(AbstractApplicationContext.java:404)
+	at org.springframework.context.support.ApplicationListenerDetector.postProcessBeforeDestruction(ApplicationListenerDetector.java:97)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:253)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:578)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:554)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:961)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:523)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:968)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1033)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:555)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.jbg.Application.main(Application.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2019-07-06 11:29:56.069 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.jbg.Application]; nested exception is java.io.FileNotFoundException: class path resource [com/jbg/api/service/MemberService.class] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:181)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:308)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:228)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:270)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:93)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:686)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:524)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:737)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:370)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.jbg.Application.main(Application.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.io.FileNotFoundException: class path resource [com/jbg/api/service/MemberService.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:172)
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:50)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:98)
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:89)
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:76)
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:93)
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:693)
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getInterfaces(ConfigurationClassParser.java:870)
+	at org.springframework.context.annotation.ConfigurationClassParser.processInterfaces(ConfigurationClassParser.java:363)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:320)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:190)
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:292)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:198)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:167)
+	... 18 common frames omitted
+2019-07-06 12:07:48.102 [restartedMain] INFO  com.jbg.Application - No active profile set, falling back to default profiles: default
+2019-07-06 12:07:50.755 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-07-06 12:07:50.756 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-07-06 12:07:50.864 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-06 12:07:54.632 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2019-07-06 12:07:54.632 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-07-06 12:07:54.639 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2019-07-06 12:07:54.639 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-07-06 12:07:55.050 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2019-07-06 12:07:55.633 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2019-07-06 12:07:55.634 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2019-07-06 12:07:55.739 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2019-07-06 12:07:55.739 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2019-07-06 12:07:55.975 [restartedMain] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 12:07:56.362 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-07-06 12:07:56.363 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-07-06 12:07:56.619 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+2019-07-06 12:07:56.620 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2019-07-06 12:07:56.622 [restartedMain] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-07-06 12:07:56.624 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1562386076624 with initial instances count: 0
+2019-07-06 12:07:56.658 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1562386076658, current=UP, previous=STARTING]
+2019-07-06 12:07:56.660 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_MEMBER/DESKTOP-LAH3RHM:member:8762: registering service...
+2019-07-06 12:07:56.741 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8762"]
+2019-07-06 12:07:56.757 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8762"]
+2019-07-06 12:07:56.769 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-06 12:07:56.806 [restartedMain] INFO  com.jbg.Application - Started Application in 11.007 seconds (JVM running for 11.517)
+2019-07-06 12:07:56.833 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_MEMBER/DESKTOP-LAH3RHM:member:8762 - registration status: 204
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: false
+2019-07-06 12:08:26.622 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-07-06 12:08:26.653 [DiscoveryClient-CacheRefreshExecutor-0] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+2019-07-06 15:02:52.300 [restartedMain] INFO  com.jbg.Application - No active profile set, falling back to default profiles: default
+2019-07-06 15:02:54.860 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2019-07-06 15:02:54.861 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.14
+2019-07-06 15:02:54.974 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-07-06 15:02:58.949 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2019-07-06 15:02:58.949 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-07-06 15:02:58.955 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2019-07-06 15:02:58.955 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-07-06 15:02:59.401 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2019-07-06 15:02:59.984 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2019-07-06 15:02:59.984 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2019-07-06 15:03:00.106 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2019-07-06 15:03:00.106 [restartedMain] INFO  com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2019-07-06 15:03:00.343 [restartedMain] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:03:00.721 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Application is null : false
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2019-07-06 15:03:00.722 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2019-07-06 15:03:00.854 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - The response status is 200
+2019-07-06 15:03:00.855 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2019-07-06 15:03:00.857 [restartedMain] INFO  com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-07-06 15:03:00.858 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1562396580858 with initial instances count: 1
+2019-07-06 15:03:00.892 [restartedMain] INFO  com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1562396580892, current=UP, previous=STARTING]
+2019-07-06 15:03:00.893 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_MEMBER/DESKTOP-LAH3RHM:member:8762: registering service...
+2019-07-06 15:03:00.930 [DiscoveryClient-InstanceInfoReplicator-0] INFO  com.netflix.discovery.DiscoveryClient - DiscoveryClient_MEMBER/DESKTOP-LAH3RHM:member:8762 - registration status: 204
+2019-07-06 15:03:00.967 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8762"]
+2019-07-06 15:03:00.980 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8762"]
+2019-07-06 15:03:00.990 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-07-06 15:03:01.018 [restartedMain] INFO  com.jbg.Application - Started Application in 10.949 seconds (JVM running for 11.46)
+2019-07-06 15:06:05.752 [http-nio-8762-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-07-06 15:06:06.052 [http-nio-8762-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@64e21ab4; line: 3, column: 13] (through reference chain: com.jbg.entity.MbUser["phone"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@64e21ab4; line: 3, column: 13] (through reference chain: com.jbg.entity.MbUser["phone"])
+2019-07-06 15:06:06.053 [http-nio-8762-exec-1] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@64e21ab4; line: 3, column: 13] (through reference chain: com.jbg.entity.MbUser["phone"]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Can not deserialize instance of java.lang.String out of START_ARRAY token
+ at [Source: java.io.PushbackInputStream@64e21ab4; line: 3, column: 13] (through reference chain: com.jbg.entity.MbUser["phone"])
+2019-07-06 15:08:00.724 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:09:48.267 [http-nio-8762-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@490cca6b; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@490cca6b; line: 2, column: 5]
+2019-07-06 15:09:48.267 [http-nio-8762-exec-2] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@490cca6b; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@490cca6b; line: 2, column: 5]
+2019-07-06 15:11:08.636 [http-nio-8762-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@6ceb6cf9; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@6ceb6cf9; line: 2, column: 5]
+2019-07-06 15:11:08.636 [http-nio-8762-exec-3] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@6ceb6cf9; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@6ceb6cf9; line: 2, column: 5]
+2019-07-06 15:11:54.178 [http-nio-8762-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@2b9e68e9; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@2b9e68e9; line: 2, column: 5]
+2019-07-06 15:11:54.179 [http-nio-8762-exec-4] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@2b9e68e9; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@2b9e68e9; line: 2, column: 5]
+2019-07-06 15:12:28.475 [http-nio-8762-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@777b338b; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@777b338b; line: 2, column: 5]
+2019-07-06 15:12:28.475 [http-nio-8762-exec-5] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved exception caused by Handler execution: org.springframework.http.converter.HttpMessageNotReadableException: Could not read JSON document: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@777b338b; line: 2, column: 5]; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('u' (code 117)): was expecting double-quote to start field name
+ at [Source: java.io.PushbackInputStream@777b338b; line: 2, column: 5]
+2019-07-06 15:13:00.726 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:13:27.382 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:13:27.382 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - 请求地址:http://localhost:8762/member/insertUser
+2019-07-06 15:13:27.382 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - 请求方式:POST
+2019-07-06 15:13:27.385 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法:ResponseBase com.jbg.api.service.impl.MemberServiceImpl.regUser(MbUser)
+2019-07-06 15:13:27.385 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法参数:[MbUser(id=null, username=学医, password=11111, phone=15111169998, email=yushengjun20180315@163.com, created=Thu Mar 14 08:00:00 CST 2019, updated=Thu Mar 14 08:00:00 CST 2019)]
+2019-07-06 15:13:27.386 [http-nio-8762-exec-6] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:13:27.448 [http-nio-8762-exec-6] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2019-07-06 15:13:27.682 [http-nio-8762-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '15111169998' for key 'phone'
+### The error may involve com.jbg.mapper.MbUserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: insert into mb_user (id, username, password,        phone, email, created,        updated)     values (?, ?, ?,        ?, ?, ?,        ?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '15111169998' for key 'phone'
+; SQL []; Duplicate entry '15111169998' for key 'phone'; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '15111169998' for key 'phone'] with root cause
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '15111169998' for key 'phone'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2501)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy103.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:56)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:53)
+	at com.sun.proxy.$Proxy104.insert(Unknown Source)
+	at com.jbg.api.service.impl.MemberServiceImpl.regUser(MemberServiceImpl.java:73)
+	at com.jbg.api.service.impl.MemberServiceImpl$$FastClassBySpringCGLIB$$415b75e6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.jbg.api.service.impl.MemberServiceImpl$$EnhancerBySpringCGLIB$$8cf1f3e7.regUser(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-07-06 15:14:24.147 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:14:24.148 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - 请求地址:http://localhost:8762/member/insertUser
+2019-07-06 15:14:24.148 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - 请求方式:POST
+2019-07-06 15:14:24.148 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法:ResponseBase com.jbg.api.service.impl.MemberServiceImpl.regUser(MbUser)
+2019-07-06 15:14:24.148 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法参数:[MbUser(id=null, username=学医, password=11111, phone=15111169997, email=yushengjun20180315@163.com, created=Thu Mar 14 08:00:00 CST 2019, updated=Thu Mar 14 08:00:00 CST 2019)]
+2019-07-06 15:14:24.148 [http-nio-8762-exec-7] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:14:24.160 [http-nio-8762-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'yushengjun20180315@163.com' for key 'email'
+### The error may involve com.jbg.mapper.MbUserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: insert into mb_user (id, username, password,        phone, email, created,        updated)     values (?, ?, ?,        ?, ?, ?,        ?)
+### Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'yushengjun20180315@163.com' for key 'email'
+; SQL []; Duplicate entry 'yushengjun20180315@163.com' for key 'email'; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'yushengjun20180315@163.com' for key 'email'] with root cause
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry 'yushengjun20180315@163.com' for key 'email'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:935)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2501)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:1197)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:493)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	at com.sun.proxy.$Proxy103.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:56)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:53)
+	at com.sun.proxy.$Proxy104.insert(Unknown Source)
+	at com.jbg.api.service.impl.MemberServiceImpl.regUser(MemberServiceImpl.java:73)
+	at com.jbg.api.service.impl.MemberServiceImpl$$FastClassBySpringCGLIB$$415b75e6.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:738)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:52)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:673)
+	at com.jbg.api.service.impl.MemberServiceImpl$$EnhancerBySpringCGLIB$$8cf1f3e7.regUser(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:897)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.web.filter.ApplicationContextHeaderFilter.doFilterInternal(ApplicationContextHeaderFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.trace.WebRequestTraceFilter.doFilterInternal(WebRequestTraceFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.autoconfigure.MetricsFilter.doFilterInternal(MetricsFilter.java:106)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - 请求地址:http://localhost:8762/member/insertUser
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - 请求方式:POST
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法:ResponseBase com.jbg.api.service.impl.MemberServiceImpl.regUser(MbUser)
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - 请求类方法参数:[MbUser(id=null, username=学医, password=11111, phone=15111169997, email=yushengjun20180315@163.com, created=Thu Mar 14 08:00:00 CST 2019, updated=Thu Mar 14 08:00:00 CST 2019)]
+2019-07-06 15:15:06.307 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - ===============请求内容===============
+2019-07-06 15:15:06.324 [http-nio-8762-exec-8] INFO  com.jbg.api.service.impl.MemberServiceImpl - ####会员服务推送消息到消息服务平台####json{}{"header":{"interfaceType":"email"},"content":{"email":"yushengjun20180315@163.com"}}
+2019-07-06 15:15:06.527 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - --------------返回内容----------------
+2019-07-06 15:15:06.538 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - Response内容:{"code":200,"data":"用户注册成功","msg":"success"}
+2019-07-06 15:15:06.538 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - --------------返回内容----------------
+2019-07-06 15:15:06.538 [http-nio-8762-exec-8] INFO  com.jbg.log.LogAspectServiceApi - 请求处理时间为:231MS
+2019-07-06 15:18:00.727 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:23:00.728 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:28:00.730 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:33:00.732 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:38:00.734 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2019-07-06 15:43:00.736 [AsyncResolver-bootstrap-executor-0] INFO  com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

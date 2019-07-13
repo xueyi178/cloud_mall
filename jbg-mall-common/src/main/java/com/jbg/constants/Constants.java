@@ -21,7 +21,9 @@ public interface Constants {
 	Integer HTTP_RES_CODE_200 = 200;
 	// 系统错误
 	Integer HTTP_RES_CODE_500 = 500;
-
+	//表示未关联QQ账号
+	Integer HTTP_RES_CODE_201 = 201;
+	
 	// 发送邮件
 	String MSG_SMS = "email";
 

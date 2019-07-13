@@ -33,16 +33,16 @@ import com.jbg.utils.TokenUtils;
 public class MemberServiceImpl extends BaseApiService implements MemberService {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
-	
+
 	@Autowired
 	private MbUserMapper mbUserMapper;
-	
+
 	@Autowired
 	private RegisterMailboxProducer registerMailboxProducer;
-	
+
 	@Value("${messages.queue}")
 	private String MESSAGESQUEUE;
-	
+
 	/**
 	 * 1、根据用户id查询用户信息
 	 * @return
@@ -74,7 +74,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		if(falg <= 0) {
 			return this.setResultError("注册用户信息失败");
 		}
-		
+
 		//采用mq发送消息
 		//传邮箱地址
 		String emailJson = emailJson(mbUser.getEmail());
@@ -98,7 +98,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		rootJson.put("content", content);
 		return rootJson.toJSONString();
 	}
-	
+
 	/**
 	 * 发送消息
 	 * @param json
@@ -121,18 +121,8 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		Assert.notNull(mbUser.getPassword(), "密码不能为空,请重新输入");
 		//2、数据库查询用户名和密码是否正确
 		String password = MD5Utils.MD5(mbUser.getPassword());
-		MbUser user = mbUserMapper.login(mbUser.getUsername(), password);
-		Assert.notNull(user, "账号或密码不正确,请重试");
-		//3、如果账号和密码正确,生成token
-		String token = TokenUtils.getToken();
-		//4、存放到redis中key为token,value：userId,
-		log.info("####用户信息存入到redis中.....key为:{}"+token,"value为:{}"+user.getId());
-		this.baseRedisService.setString(token, user.getId().toString(), Constants.TOKEN_MEMBER_TIME);
-		//5、直接返回token
-		JSONObject object = new JSONObject();
-		object.clear();
-		object.put("token", token);
-		return setResultSuccess(object);
+		mbUser.setPassword(password);
+		return this.setLogin(mbUser);
 	}
 
 	/**
@@ -153,5 +143,74 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
 		user.setEmail(mbUser.getEmail());
 		user.setPhone(mbUser.getPhone());
 		return this.setResultSuccess(user);
+	}
+
+	/**
+	 * 封装登录的方法
+	 * @param mbUser
+	 * @param password
+	 * @return
+	 */
+	private ResponseBase setLogin(MbUser mbUser) {
+		//1、验证参数
+		Assert.notNull(mbUser.getUsername(), "用户名不能为空,请重新输入");
+		Assert.notNull(mbUser.getPassword(), "密码不能为空,请重新输入");
+		MbUser user = mbUserMapper.login(mbUser.getUsername(), mbUser.getPassword());
+		Assert.notNull(user, "账号或密码不正确,请重试");
+		//3、如果账号和密码正确,生成token
+		String token = TokenUtils.getToken();
+		//4、存放到redis中key为token,value：userId,
+		log.info("####用户信息存入到redis中.....key为:{}"+token,"value为:{}"+user.getId());
+		this.baseRedisService.setString(token, user.getId().toString(), Constants.TOKEN_MEMBER_TIME);
+		//5、直接返回token
+		JSONObject object = new JSONObject();
+		object.put("token", token);
+		object.put("id", user.getId());
+		return setResultSuccess(object);
+	}
+
+
+	/**
+	 * 5. 使用openId获取用户信息
+	 * @param openId
+	 * @return
+	 */
+	@Override
+	public ResponseBase findByOpenIdUser(@RequestParam("openId") String openId) {
+		//1. 判断openid是否为空
+		Assert.notNull(openId, "openId不能为空");
+		//2. 使用openId去查询数据库
+		MbUser mbUser = mbUserMapper.findByOpenIdUser(openId);
+		if(mbUser == null) {
+			return setResultError(Constants.HTTP_RES_CODE_201, "该openId没有关联");
+		}
+		//自动登录
+		return this.setLogin(mbUser);
+	}
+
+	/**
+	 * 6. 使用qq来进行登录
+	 * @param mbUser
+	 * @return
+	 */
+	@Override
+	public ResponseBase qqLogin(@RequestBody MbUser mbUser) {
+		//1. 验证参数
+		Assert.notNull(mbUser.getUsername(), "用户名不能为空,请重新输入");
+		Assert.notNull(mbUser.getPassword(), "密码不能为空,请重新输入");
+		//2. 先进行账号登录,修改数据库中对应的openId
+		ResponseBase setLogin = this.login(mbUser);
+		//3. 如果登录成功,
+		if(!setLogin.getCode().equals(Constants.HTTP_RES_CODE_200)) {
+			return setLogin;
+		}
+		 
+		JSONObject data = (JSONObject) setLogin.getData();
+		Long id = (Long) data.get("id");
+		int falg = mbUserMapper.updateByOpenIdUser(mbUser.getOpenId(),id);
+		if(falg <= 0) {
+			return setResultError("QQ账号关联失败");
+		}
+		return setLogin;
 	}
 }

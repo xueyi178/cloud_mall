@@ -47,4 +47,21 @@ public interface MemberService {
 	 */
 	@PostMapping(value="/getUserByToken")
 	ResponseBase getUserByToken(@RequestParam("token") String token);
+	
+	/**
+	 * 5. 使用openId获取用户信息
+	 * @param openId
+	 * @return
+	 */
+	@PostMapping(value="/findByOpenIdUser")
+	ResponseBase findByOpenIdUser(@RequestParam("openId") String openId);
+	
+	/**
+	 * 6. 使用qq来进行登录
+	 * @param mbUser
+	 * @return
+	 */
+	@PostMapping(value="/qqLogin")
+	ResponseBase qqLogin(@RequestBody MbUser mbUser);
+	
 }

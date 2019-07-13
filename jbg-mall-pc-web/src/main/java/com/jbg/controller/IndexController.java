@@ -31,6 +31,7 @@ public class IndexController {
 
 	/**
 	 * 1、访问首页
+	 * 用/直接访问首页
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
